@@ -19,7 +19,7 @@ module tb;
 endmodule
 ```
 
-# Outout
+# Output
 ```
 The first member of enum datatype is RED
 The next member of enum datatype is BLUE
