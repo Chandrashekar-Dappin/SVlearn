@@ -1,5 +1,5 @@
-# deep copy : separate memory is created for properties and objects also
-### ex : h2 = h1.copy();    (copy() is mandatory)
+# deep copy : separate memory is created for properties and objects
+### ex : h2 = h1.copy();    ('copy()' is mandatory)
 ### a copy function is written in each class mandatorily
 
 ### copy method: for property - copy.prop = this.prop;
