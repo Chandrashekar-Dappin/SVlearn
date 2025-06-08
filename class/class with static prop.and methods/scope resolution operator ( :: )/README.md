@@ -1,5 +1,5 @@
 # using scope resolution operator we can access the prop. and methods of a class without using handler
-# but the condition is the prop. and methods should be of 'static' type
+# but the condition is the prop. and methods of class should be of 'static' type
 
 ```
 class packet;
