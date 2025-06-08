@@ -5,6 +5,8 @@
 ### copy method: for property - copy.prop = this.prop;
 ### copy method: for object - copy.object = object.copy();
 
+# NOTE : inside copy function it must always (return copy;) not (return copy()) as it leads to recursion
+
 ```
 class A;
   int a;
