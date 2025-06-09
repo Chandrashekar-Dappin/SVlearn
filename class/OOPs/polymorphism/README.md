@@ -3,10 +3,15 @@
 
 # Rules:
 **1. write the same methods with same signatures with different functionalities in parent as well as childs.**
+
 **2. write 'virtual' keyword with function in top parent class - Recommended.**
+
 **3. declare equal no. of handles for parent class and child classes.**
+
 **4. cretae the child handle object and assign child handle into parent handle.**
+
 **5. then if we access 'parent_name.method' then 'child_name.method' is accessed.**
+
 **6. NOTE : we cannot write 'virtual' with 'new()' i.e. custom constructor.**
 
 
