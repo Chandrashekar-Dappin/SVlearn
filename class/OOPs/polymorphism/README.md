@@ -15,7 +15,7 @@
 **6. NOTE : we cannot write 'virtual' with 'new()' i.e. custom constructor.**
 
 
-**NOTE: usually we assign child handle to parent handle...but we cannot assign parent handle to child handle **
+**NOTE: usually we assign child handle to parent handle...but we cannot assign parent handle to child handle**
 
 **Ex : b = c ; // c - child , b - parent**
 
