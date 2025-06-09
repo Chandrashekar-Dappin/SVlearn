@@ -50,7 +50,7 @@ class child extends parent;
   int y;
   
   function void display();
-    **super.display();**
+    super.display();
     $display("Hi I'm in child class");
   endfunction
   
@@ -71,3 +71,4 @@ endmodule
 Hi I'm in parent class
 Hi I'm in child class
 ```
+**super.display();**
