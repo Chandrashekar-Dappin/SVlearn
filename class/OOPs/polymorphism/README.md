@@ -246,3 +246,48 @@ module tb;
 endmodule
 ```
    
+# Ex6 :
+```
+class A;
+  
+  virtual function void display();
+    $display("A");
+  endfunction
+  
+endclass
+
+class B extends A;
+  
+  virtual function void display();
+    $display("B");
+  endfunction
+  
+endclass
+
+class C extends B;
+  
+  virtual function void display();
+    $display("C");
+  endfunction
+  
+endclass
+
+module tb;
+  A a[2];
+  B b;
+  C c;
+  
+  initial begin
+    c = new();
+    b = new();
+
+    a[0] = b;        // a[0] is pointing to B
+    a[1] = c;        // a[1] is pointing to C
+   
+    a[0].display();  // B
+    a[1].display();  // C
+    
+  end
+  
+endmodule
+```
