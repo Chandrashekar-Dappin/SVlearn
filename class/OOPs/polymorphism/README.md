@@ -2,7 +2,7 @@
 # In polymorphism parent acts as a child
 
 # Rules:
-**1. write the same methods with same signatures with different functionalities in parent as well as childs.**
+**1. write the same methods with same signatures with different functionalities in parent class as well as child classes**
 
 **2. write 'virtual' keyword with function in top parent class - Recommended.**
 
