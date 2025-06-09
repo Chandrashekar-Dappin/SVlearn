@@ -16,8 +16,11 @@
 
 
 **NOTE: usually we assign child handle to parent handle...but we cannot assign parent handle to child handle **
+
 **Ex : b = c ; // c - child , b - parent**
-**     c = b ; // we cannot assign directly**
+
+  **c = b ; // we cannot assign directly**
+
 **This can be done using casting.**
 
 # Ex1: without polymorphism
