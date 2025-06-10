@@ -1,6 +1,6 @@
-> static constraint : writing 'static' keyword before constraint , then this constraint is shared with all objects of class.
+## static constraint : writing 'static' keyword before constraint , then this constraint is shared with all objects of class.
 
-> Ex :
+## Ex :
  ```
 class packet;
   rand bit [7:0] a;
