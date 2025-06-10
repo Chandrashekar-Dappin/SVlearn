@@ -5,8 +5,8 @@
 class packet;
   rand bit [7:0] data,addr;
 
-  static constraint c1 { addr>100 -> data < 100; }
-  static constraint c2 { addr<100 -> data > 100; }
+  constraint c1 { addr>100 -> data < 100; }
+  constraint c2 { addr<100 -> data > 100; }
   
 endclass
 
