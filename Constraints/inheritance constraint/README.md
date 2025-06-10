@@ -47,3 +47,47 @@ endmodule
  a = 111 
  a = 77
 ```
+
+## Ex2 : Randomised data with constraints from both classes applied
+```
+class parent;
+  rand bit [7:0] a;
+  
+  constraint c1 { a>=25; a<=150; }
+  
+endclass
+
+
+class child extends parent;
+  
+  constraint c2 { a>=50; a<=200; }
+  
+endclass
+
+module tb;
+  child c;
+  
+  initial begin
+    c = new();
+    
+    repeat(10) begin
+      assert(c.randomize())
+        $display(" a = %0d ",c.a);
+    end
+    
+  end
+  
+endmodule
+
+//Output
+ a = 61 
+ a = 121 
+ a = 96 
+ a = 104 
+ a = 73 
+ a = 109 
+ a = 82 
+ a = 63 
+ a = 112 
+ a = 139
+```
