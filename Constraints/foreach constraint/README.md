@@ -227,7 +227,7 @@ endmodule
 array = '{0000000000001000, 0010000000000000, 0000000000001000, 0000000000000100, 0000000010000000, 0000000100000000, 0000000010000000, 0001000000000000, 0000000000001000, 0000000000100000, }
 ```
 
-## Ex5 : randomize 13th bit of 16 bit variable
+## Ex6 : randomize 13th bit of 16 bit variable
 ```
 class packet;
   rand bit [15:0] arr;
@@ -276,4 +276,245 @@ array : 0000000000000000
 array : 0000000000000000
 ```
 
+## Ex7 : randomize 16 bit variable with 5 non-consecutive ones
+```
+
+class packet;
+  rand bit [15:0] a;
+  
+  constraint c { $countones(a) == 5;
+                
+                foreach(a[i])
+                  if(i<15)
+                  !(a[i] && a[i+1]);
+                  
+                
+               }
+  
+endclass
+
+
+module tb;
+  packet p;
+  
+  initial begin
+    p = new();
+    
+    repeat(5) begin
+      assert(p.randomize());
+      $displayb(" %b ",p.a);
+      
+    end
+    
+  end
+  
+endmodule
+
+//Output
+ 1001010010001000 
+ 0101000010100100 
+ 1000000010010101 
+ 0100001001010001 
+ 0010001000100101
+```
+
+## Ex8 : randomize 16 bit variable with 5 consecutive ones
+```
+class packet;
+  rand bit [15:0] N;
+  rand bit [3:0] pos;
+
+  constraint pos_range { pos <= 11; } // only positions 0 to 11 for 5-bit fit
+
+  constraint pattern_c {
+    N == (16'h1F << pos); // 5 consecutive 1s generated using mask
+  }                       // first 0000000000011111 is generated and it is left shifted pos number of times
+
+  function void post_randomize();
+    $display("N   = %b", N);
+    $display("pos = %0d", pos);
+  endfunction
+endclass
+
+module test;
+  packet p;
+
+  initial begin
+    p = new();
+    repeat (10) begin
+      assert(p.randomize());
+    end
+  end
+endmodule
+
+//Output
+N   = 0000000011111000
+pos = 3
+N   = 0111110000000000
+pos = 10
+N   = 0000000111110000
+pos = 4
+N   = 0000000111110000
+pos = 4
+N   = 0000000000011111
+pos = 0
+N   = 0000000111110000
+pos = 4
+N   = 0001111100000000
+pos = 8
+N   = 0000000011111000
+pos = 3
+N   = 0000000001111100
+pos = 2
+N   = 0000011111000000
+pos = 6
+```
+
+## Ex8 : randomize 16 bit variable with 5 consecutive ones (another method)
+```
+class packet; 
+  rand bit [15:0] N;
+  rand bit [3:0] pos;
+  constraint c0 { $countones(N) == 5;}
+  constraint c1 { pos <= 11;}
+  constraint c2 { foreach(N[i])
+    if(N[i]==1 && i<15)
+      N[i+1] ==1;  }
+  
+  function void post_randomize(); 
+    N = N>>pos;
+    $display("N = %b", N);
+    $display("pos = %d", pos);
+  endfunction
+endclass
+
+module test;
+  packet p1;
+  initial begin 
+    p1 = new();
+    repeat(10) begin
+      assert(p1.randomize());
+    end
+  end
+endmodule
+
+// 🔹 1. foreach(N[i])
+// This loops through each bit of the 16-bit vector N[15:0]. The index i goes from 0 to 15.
+  
+// 🔹 i is the index
+// It represents the position in the array N, ranging from 0 to 15.
+
+// 🔹 N[i] is the element
+// It refers to the bit value at position i in the 16-bit vector N.
+
+//Output
+N = 0000000000011111
+pos = 11
+N = 0011111000000000
+pos =  2
+N = 0000001111100000
+pos =  6
+N = 0000000111110000
+pos =  7
+N = 0000111110000000
+pos =  4
+N = 0000111110000000
+pos =  4
+N = 0000000011111000
+pos =  8
+N = 1111100000000000
+pos =  0
+N = 0000000111110000
+pos =  7
+N = 0000000000011111
+pos = 11
+```
+
+## Ex9 : constraint for prime number generation
+```
+class prime;
+  rand int a[];
+
+  constraint c1 { a.size() == 10; }
+
+  // Just randomize any values; we'll filter them in post_randomize()
+  function void post_randomize();
+    int i = 0;
+    int n;
+    for(int i=0; i<a.size ; i++) begin
+      do begin
+        n = $urandom_range(2, 100); // Random number between 2 and 100  ...it continuously generate the numbers until the prime number comes
+      end while (!is_prime(n));
+      a[i] = n;
+    end
+  endfunction
+
+  // function to check prime 
+  function bit is_prime(int N);
+    if (N <= 1) return 0;
+    for (int j = 2; j*j <= N; j++) begin
+      if (N % j == 0)
+        return 0;
+    end
+    return 1;
+  endfunction
+
+endclass
+
+
+module tb;
+  prime p;
+
+  initial begin
+    p = new();
+    assert(p.randomize());
+    $display("Prime numbers: %p", p.a);
+  end
+
+endmodule
+
+//Output
+Prime numbers: '{19, 61, 71, 53, 19, 7, 23, 23, 67, 37}
+```
+
+## Ex9 : constraint for prime number generation using only constraint
+```
+class prime;
+  rand int a[];
+  
+  constraint c1 { a.size == 10; }
+  
+  constraint c2 { foreach(a[i])
+    a[i] == prime(i); }
+  
+  function int prime (int N);
+    if(N<=1)
+      return 2;
+    
+    for(int j=2 ; j<N ; j++) 
+      if((N%j) == 0)
+        return 2;
+    
+    return N;
+    
+  endfunction
+  
+endclass
+
+module tb;
+  prime p;
+  
+  initial begin
+    p = new();
+    
+    assert(p.randomize());
+    $display("prime numbers : %p",p.a);
+    
+  end
+  
+endmodule
+
+//Output
+prime numbers : '{2, 2, 2, 3, 2, 5, 2, 7, 2, 2}
+```
 
