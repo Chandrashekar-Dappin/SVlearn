@@ -1,10 +1,10 @@
-**Verilog has only $random but SV has $random, $urandom ,$urandom_range**
+**Verilog has only $random but SV has $random, $urandom ,$urandom_range   // for this the variables need not to be declared as  rand / randc**
 
 **SV has a built in class method - 'randomize()**
 
-**1. scope randomization : randomize(signal names);**
+**1. scope randomization : randomize(signal names);     // for this the variables need not to be declared as  rand / randc**
 
-**2. object randomization : handle.randomize();**
+**2. object randomization : handle.randomize();    // for this the variables must be declared as rand / randc**
 
 **NOTE : randomize() has no size,it randomizes the data based datatype size**
 
