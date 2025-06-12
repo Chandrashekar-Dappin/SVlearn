@@ -481,40 +481,45 @@ Prime numbers: '{19, 61, 71, 53, 19, 7, 23, 23, 67, 37}
 ```
 class prime;
   rand int a[];
+  int b[$];
   
-  constraint c1 { a.size == 10; }
+  constraint c1 { a.size > 15 && a.size < 30; }
   
-  constraint c2 { foreach(a[i])
-    a[i] == prime(i); }
+  constraint c2 { foreach(a[i]) a[i] == prime(i) ; }
   
-  function int prime (int N);
+  function int prime(int N);
     if(N<=1)
       return 2;
     
-    for(int j=2 ; j<N ; j++) 
-      if((N%j) == 0)
+    for(int j = 2; j <= N/2 ; j++) 
+      if(N%j == 0)
         return 2;
     
     return N;
     
   endfunction
   
+  function void post_randomize();
+    b= a.unique;
+  endfunction
+  
 endclass
-
-module tb;
-  prime p;
   
-  initial begin
-    p = new();
+  module tb;
+    prime p;
     
-    assert(p.randomize());
-    $display("prime numbers : %p",p.a);
+    initial begin
+      p = new();
+      
+      assert(p.randomize());
+      $display("array = %p",p.b);
+      
+    end
     
-  end
-  
-endmodule
+  endmodule
+    
 
 //Output
-prime numbers : '{2, 2, 2, 3, 2, 5, 2, 7, 2, 2}
+array = '{2, 3, 5, 7, 11, 13, 17} 
 ```
 
