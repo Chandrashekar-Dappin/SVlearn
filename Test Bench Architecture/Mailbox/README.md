@@ -10,16 +10,16 @@
 > 
 > ✅ Mailbox Basics Recap
 > 
-> Operation	Behavior
+> Operation	Behavior :
 > 
-> put(item)	Blocks if mailbox is full until space is available.
+> put(item) :	Blocks if mailbox is full until space is available.
 > 
-> try_put(item)	Non-blocking put, returns immediately (success/fail).
+> try_put(item)	: Non-blocking put, returns immediately (success/fail).
 > 
-> get(variable)	Blocks if mailbox is empty until data is available.
+> get(variable)	: Blocks if mailbox is empty until data is available.
 > 
-> try_get(var)	Non-blocking get. If data is present, gets it. Else returns immediately.
+> try_get(var)	: Non-blocking get. If data is present, gets it. Else returns immediately.
 > 
-> peek(var)	Reads the oldest entry without removing it (blocking).
+> peek(var)	: Reads the oldest entry without removing it (blocking).
 > 
-> try_peek(var)	Non-blocking version of peek.
+> try_peek(var)	: Non-blocking version of peek.
