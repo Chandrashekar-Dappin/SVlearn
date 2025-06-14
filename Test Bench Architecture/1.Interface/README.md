@@ -1,10 +1,17 @@
 > ## Interface :
+> 
 > It's a container for all communication signals through which TB and DUT communicate
+> 
 > used to encapsulate communication b/w design blocks , and b/w design & communication blocks.
+> 
 > Interface can be accessed as a single item..ex: HA(inf);
+> 
 > signals can be added/removed easily from an interface without modifying any port list.
+> 
 > (It's a bunch if communication signals)
+> 
 > Interface can contain CONNECTIVITY ,SYNCHRONISATION between two or more blocks.
+> 
 > by default it  static type and contain signals of logic datatypes.
 > 
 >  ## Ex 1:
