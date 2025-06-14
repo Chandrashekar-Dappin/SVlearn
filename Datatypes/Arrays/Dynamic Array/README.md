@@ -25,7 +25,7 @@ endmodule
 
 ```
 
-Ex2 : Initialising without declaring size
+## Ex2 : Initialising without declaring size
 ```
 module tb;
   int a[][];
