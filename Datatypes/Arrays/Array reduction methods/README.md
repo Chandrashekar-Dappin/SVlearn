@@ -7,3 +7,29 @@
 ## min()
 ## .max()
 ## .and(), .or(), .xor() — bitwise reductions
+
+## Ex:
+```
+module array_reduction;
+  int a[] = '{6,4,7,5,1,3,2};
+  
+  initial begin
+    
+    $display("sum of array : %0d", a.sum);
+    $display("product of array : %0d", a.product);
+    
+    $display("bitwise and of sorted array : %0d", a.and);
+    
+    $display("bitwise xor array : %0d", a.xor);
+    
+  end
+  
+endmodule
+    
+
+//Output
+sum of array : 28
+product of array : 5040
+bitwise and of sorted array : 0
+bitwise xor array : 0
+```
