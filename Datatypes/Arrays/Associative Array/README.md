@@ -4,6 +4,7 @@
 ## It is kind of key-value data structure similar to dictionary in python.
 ## If index is specified as *, then array can be indexed by any integral type (int,shortint,longint,byte,bit,reg...)
 ## you can use negative indexing in SystemVerilog associative arrays — as long as the index type supports negative values, like int or integer.
+## NOTE : we can use foreach loop for accessing the elements of associative array.
 
 ## Use Cases of Associative Arrays in SystemVerilog
 > Associative arrays are ideal when:
@@ -35,4 +36,20 @@ bit [7:0] mem[int];
 
 mem[0] = 8'hFF;
 mem[1024] = 8'hAA;  // No need to define all 1024 addresses
+```
+
+## Ex3: foreach loop
+```
+module foreach_assoc_array;
+  int scores[string];
+
+  initial begin
+    scores["Alice"] = 90;
+    scores["Bob"]   = 80;
+    scores["Charlie"] = 85;
+
+    foreach (scores[name])
+      $display("%s => %0d", name, scores[name]);
+  end
+endmodule
 ```
