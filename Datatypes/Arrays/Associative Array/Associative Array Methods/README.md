@@ -68,4 +68,18 @@ module assoc_array_methods;
   end
 
 endmodule
+
+//Output
+? Key 3 exists with value = 30
+? Number of entries: 4
+? First key: 1
+? Last key: 7
+? Next key after 3: 5
+? Previous key before 5: 3
+? Deleted key 1
+Remaining entries after delete(1):
+a[3] = 30
+a[5] = 50
+a[7] = 70
+? All entries deleted. Total = 0
 ```
