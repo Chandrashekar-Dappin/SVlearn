@@ -76,32 +76,4 @@ endmodule
 //array : '{'{0, 0, 0} , '{0, 0} , '{0, 0} , '{0, 0} }
 ```
 
-## Ex4 : Array reduction methods
-```
-module tb;
-  int a[];
-  
-  initial begin
-    $display("array size before initialisation is %0d",a.size());
-    
-    a='{1,2,3,4,5,6};
-      
-    $display("array : %p",a);
-    $display("array sum : %0d",a.sum);
-    $display("array product: %0d",a.product);
-    $display("array and: %0d",a.and);
-    $display("array or : %0d",a.or);
-      
-  end
-  
-endmodule
-
-//Output
-array size before initialisation is 0
-array : '{1, 2, 3, 4, 5, 6} 
-array sum : 21
-array product: 720
-array and: 0
-array or : 7
-```
 
