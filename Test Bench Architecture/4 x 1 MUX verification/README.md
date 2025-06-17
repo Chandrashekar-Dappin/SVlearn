@@ -139,7 +139,7 @@ class scoreboard;
   
   transaction tr;
   mailbox mon2scr;
-  
+  // bit expected_y;
   
   function new(mailbox mon2scr);
     this.mon2scr = mon2scr;
@@ -150,7 +150,19 @@ class scoreboard;
     repeat(10) begin
       
       mon2scr.get(tr);
+
+//       case(tr.sel)
+//         2'b00 : expected_y = tr.I[0];
+//         2'b00 : expected_y = tr.I[1];
+//         2'b00 : expected_y = tr.I[2];
+//         2'b00 : expected_y = tr.I[3];
+//       endcase
       
+//       if( expected_y === tr.Y)
+//         $display("TEST PASSED");
+//       else
+//         $display("TEST FAILED");
+
       case(tr.sel)
         2'b00 : if(tr.I[0] == tr.Y)
                   $display("TEST PASSED");
