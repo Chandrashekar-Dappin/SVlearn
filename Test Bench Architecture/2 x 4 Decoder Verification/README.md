@@ -1,7 +1,6 @@
 # 2 x 4 Decoder Verification
 ## Test Bench Architecture
-![INTERFACE (2)](https://github.com/user-attachments/assets/e74dd94d-6134-4641-a019-da63fc295dc8)
-
+![INTERFACE (3)](https://github.com/user-attachments/assets/b4e787d5-8507-4e1b-a905-e7a7c821c74b)
 
 ### event done : it is used for synchronisation
 ### int count : it is parameterised in test, through which we can randomize the no.of packets
