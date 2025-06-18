@@ -1,4 +1,8 @@
 # 2 x 4 Decoder Verification
+### event done : it is used for synchronisation
+### int count : it is parameterised in test, through which we can randomize the no.of packets
+
+## 1. DUT
 ```
 module decoder_2_4(I,D);
   input [1:0] I;
@@ -7,17 +11,19 @@ module decoder_2_4(I,D);
   assign D = (I == 2'b00) ? 4'b0001 : (I == 2'b01) ? 4'b0010 : (I == 2'b10) ? 4'b0100 : 4'b1000;
   
 endmodule
+```
 
-
-## Interface
+## 2.Interface
+```
 interface dec_intf;
   logic [1:0] I;
   logic [3:0] D;
   
 endinterface
+```
 
-
-
+## 3.Transaction
+```
 class transaction;
   
   rand bit [1:0] I;
@@ -28,10 +34,11 @@ class transaction;
   endfunction
   
 endclass
+```
 
 
-
-
+## 4.Generator
+```
 class generator;
   transaction tr;
   mailbox gen2drv;
@@ -58,10 +65,11 @@ class generator;
   endtask
   
 endclass
+```
 
 
-
-
+## 5.Driver
+```
 class driver;
   
   transaction tr;
@@ -90,9 +98,10 @@ class driver;
   endtask
   
 endclass
+```
 
-
-
+## 6.Monitor
+```
 class monitor;
   
   transaction tr;
@@ -125,9 +134,10 @@ class monitor;
   endtask
   
 endclass
+```
 
-
-
+## 7.Scoreboard
+```
 class scoreboard;
   
   transaction tr;
@@ -168,9 +178,10 @@ class scoreboard;
   endtask
   
 endclass
+```
 
-
-
+## 8.Environment
+```
 class environment;
   
   generator gen;
@@ -210,11 +221,12 @@ class environment;
   endtask
   
 endclass
+```
 
 
 
-
-
+## 9.Test
+```
 module test(dec_intf inf);
   
   environment env;
@@ -227,9 +239,10 @@ module test(dec_intf inf);
   end
   
 endmodule
+```
 
-
-
+## 10.Top
+```
 module top;
   
   dec_intf inf();
@@ -240,7 +253,99 @@ module top;
   
 endmodule
 ```  
-  
+
+## Output
+```
+[GEN] : I = 00 | D = 0000 
+[DRV] : I = 00 | D = 0000 
+[MON] : I = 00 | D = 0001 
+[SCR] : I = 00 | D = 0001 
+TEST PASSED
+
+[GEN] : I = 11 | D = 0000 
+[DRV] : I = 11 | D = 0000 
+[MON] : I = 11 | D = 1000 
+[SCR] : I = 11 | D = 1000 
+TEST PASSED
+
+[GEN] : I = 00 | D = 0000 
+[DRV] : I = 00 | D = 0000 
+[MON] : I = 00 | D = 0001 
+[SCR] : I = 00 | D = 0001 
+TEST PASSED
+
+[GEN] : I = 01 | D = 0000 
+[DRV] : I = 01 | D = 0000 
+[MON] : I = 01 | D = 0010 
+[SCR] : I = 01 | D = 0010 
+TEST PASSED
+
+[GEN] : I = 00 | D = 0000 
+[DRV] : I = 00 | D = 0000 
+[MON] : I = 00 | D = 0001 
+[SCR] : I = 00 | D = 0001 
+TEST PASSED
+
+[GEN] : I = 10 | D = 0000 
+[DRV] : I = 10 | D = 0000 
+[MON] : I = 10 | D = 0100 
+[SCR] : I = 10 | D = 0100 
+TEST PASSED
+
+[GEN] : I = 11 | D = 0000 
+[DRV] : I = 11 | D = 0000 
+[MON] : I = 11 | D = 1000 
+[SCR] : I = 11 | D = 1000 
+TEST PASSED
+
+[GEN] : I = 01 | D = 0000 
+[DRV] : I = 01 | D = 0000 
+[MON] : I = 01 | D = 0010 
+[SCR] : I = 01 | D = 0010 
+TEST PASSED
+
+[GEN] : I = 10 | D = 0000 
+[DRV] : I = 10 | D = 0000 
+[MON] : I = 10 | D = 0100 
+[SCR] : I = 10 | D = 0100 
+TEST PASSED
+
+[GEN] : I = 01 | D = 0000 
+[DRV] : I = 01 | D = 0000 
+[MON] : I = 01 | D = 0010 
+[SCR] : I = 01 | D = 0010 
+TEST PASSED
+
+[GEN] : I = 10 | D = 0000 
+[DRV] : I = 10 | D = 0000 
+[MON] : I = 10 | D = 0100 
+[SCR] : I = 10 | D = 0100 
+TEST PASSED
+
+[GEN] : I = 10 | D = 0000 
+[DRV] : I = 10 | D = 0000 
+[MON] : I = 10 | D = 0100 
+[SCR] : I = 10 | D = 0100 
+TEST PASSED
+
+[GEN] : I = 01 | D = 0000 
+[DRV] : I = 01 | D = 0000 
+[MON] : I = 01 | D = 0010 
+[SCR] : I = 01 | D = 0010 
+TEST PASSED
+
+[GEN] : I = 10 | D = 0000 
+[DRV] : I = 10 | D = 0000 
+[MON] : I = 10 | D = 0100 
+[SCR] : I = 10 | D = 0100 
+TEST PASSED
+
+[GEN] : I = 01 | D = 0000 
+[DRV] : I = 01 | D = 0000 
+[MON] : I = 01 | D = 0010 
+[SCR] : I = 01 | D = 0010 
+TEST PASSED
+```
   
     
     
