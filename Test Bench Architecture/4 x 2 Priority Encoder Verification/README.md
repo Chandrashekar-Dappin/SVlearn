@@ -1,7 +1,6 @@
 # 4 x 2 Priority Encoder Verification
 ## Testbench Architecture
-![INTERFACE (1)](https://github.com/user-attachments/assets/d70efff1-a685-4b82-a729-3fa72d0f0f0f)
-
+![INTERFACE (3)](https://github.com/user-attachments/assets/03574b1b-4c5f-49cd-bc7f-27bf1d191dbf)
 
 ## 1.DUT
 ```
