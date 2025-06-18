@@ -1,4 +1,5 @@
 # 2 x 4 Decoder Verification
+## Test Bench Architecture
 ![INTERFACE (1)](https://github.com/user-attachments/assets/0233b9ca-dfeb-4f1f-8edf-0b13aecfcc6c)
 
 ### event done : it is used for synchronisation
