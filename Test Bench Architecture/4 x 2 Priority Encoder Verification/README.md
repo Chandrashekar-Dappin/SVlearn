@@ -272,7 +272,81 @@ module top;
   
 endmodule
 ```  
-  
+
+## Output
+```
+[GEN] : D = 1101 | I = 00
+[DRV] : D = 1101 | I = 00
+[MON] : D = 1101 | I = 11
+[SCR] : D = 1101 | I = 11
+TEST PASSED
+
+[GEN] : D = 0110 | I = 00
+[MON] : D = 0110 | I = 10
+[DRV] : D = 0110 | I = 00
+[SCR] : D = 0110 | I = 10
+TEST PASSED
+
+[GEN] : D = 1111 | I = 00
+[MON] : D = 1111 | I = 11
+[DRV] : D = 1111 | I = 00
+[SCR] : D = 1111 | I = 11
+TEST PASSED
+
+[GEN] : D = 1111 | I = 00
+[MON] : D = 1111 | I = 11
+[DRV] : D = 1111 | I = 00
+[SCR] : D = 1111 | I = 11
+TEST PASSED
+
+[GEN] : D = 0111 | I = 00
+[MON] : D = 0111 | I = 10
+[DRV] : D = 0111 | I = 00
+[SCR] : D = 0111 | I = 10
+TEST PASSED
+
+[GEN] : D = 1111 | I = 00
+[MON] : D = 1111 | I = 11
+[DRV] : D = 1111 | I = 00
+[SCR] : D = 1111 | I = 11
+TEST PASSED
+
+[GEN] : D = 0100 | I = 00
+[MON] : D = 0100 | I = 10
+[DRV] : D = 0100 | I = 00
+[SCR] : D = 0100 | I = 10
+TEST PASSED
+
+[GEN] : D = 1100 | I = 00
+[MON] : D = 1100 | I = 11
+[DRV] : D = 1100 | I = 00
+[SCR] : D = 1100 | I = 11
+TEST PASSED
+
+[GEN] : D = 0100 | I = 00
+[MON] : D = 0100 | I = 10
+[DRV] : D = 0100 | I = 00
+[SCR] : D = 0100 | I = 10
+TEST PASSED
+
+[GEN] : D = 0111 | I = 00
+[MON] : D = 0111 | I = 10
+[DRV] : D = 0111 | I = 00
+[SCR] : D = 0111 | I = 10
+TEST PASSED
+
+[GEN] : D = 1101 | I = 00
+[MON] : D = 1101 | I = 11
+[DRV] : D = 1101 | I = 00
+[SCR] : D = 1101 | I = 11
+TEST PASSED
+
+[GEN] : D = 1011 | I = 00
+[MON] : D = 1011 | I = 11
+[DRV] : D = 1011 | I = 00
+[SCR] : D = 1011 | I = 11
+TEST PASSED
+```
         
         
       
