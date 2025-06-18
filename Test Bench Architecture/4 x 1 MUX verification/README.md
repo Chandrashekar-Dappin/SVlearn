@@ -1,6 +1,6 @@
 # MUX verification
 ## Test Bench Architeture 
-![INTERFACE (1)](https://github.com/user-attachments/assets/26655216-6ecb-4f2a-8866-bd3de25ab1d5)
+![INTERFACE (3)](https://github.com/user-attachments/assets/2138204c-6760-449c-a1e6-83e171edf398)
 
 ## 1.DUT
 ```
