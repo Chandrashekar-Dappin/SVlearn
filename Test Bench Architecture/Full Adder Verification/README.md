@@ -1,6 +1,6 @@
 # Full Adder Verification
 ## Test Bench Architecture
-![INTERFACE (1)](https://github.com/user-attachments/assets/7e216adb-4730-439d-9488-1bacf8e970a0)
+![INTERFACE (3)](https://github.com/user-attachments/assets/cb7750a9-2535-4315-a0e8-f4aaaca30606)
 
 ## 1.DUT
 ```
