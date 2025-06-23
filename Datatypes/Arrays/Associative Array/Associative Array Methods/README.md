@@ -1,3 +1,5 @@
+![WhatsApp Image 2025-06-23 at 19 55 01_05d8ca83](https://github.com/user-attachments/assets/f3233ec2-7b6a-4c07-90c5-7fa2b0d292fc)
+
 ## ✅ Summary Table
 ## Method	Description :
 > exists(key)	:Check if a key is present
