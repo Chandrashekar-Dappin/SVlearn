@@ -1,4 +1,4 @@
-## Queue : a variable size ordered collection of homologous elements
+## Queue : a variable size ordered collection of homogenous elements
 ## queue is homologous to 1-D ARRAY that grows and shrinks DYNAMICALLY.
 ## We can ADD or REMOVE the elements from anywhere in the queue.
 ## '0' represents the first element ant '$' represents the last elements of queue.
