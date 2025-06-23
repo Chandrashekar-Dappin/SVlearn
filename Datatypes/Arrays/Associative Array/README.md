@@ -5,6 +5,22 @@
 ## If index is specified as *, then array can be indexed by any integral type (int,shortint,longint,byte,bit,reg...)
 ## you can use negative indexing in SystemVerilog associative arrays — as long as the index type supports negative values, like int or integer.
 ## NOTE : we can use foreach loop for accessing the elements of associative array.
+## NOTE : assoc = '{0,1,2,3,4};     illegal ..cannot initialise it as normal array
+```
+module tb;
+  
+
+  int assoc[int];
+  
+  initial begin
+    
+    assoc = '{0,1,2,3,4};     //illegal ..cannot initialise it as normal array
+    $display(" assoc : %p",assoc);
+
+  end
+  
+endmodule
+```
 
 ## Use Cases of Associative Arrays in SystemVerilog
 > Associative arrays are ideal when:
