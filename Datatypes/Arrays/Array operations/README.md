@@ -36,7 +36,34 @@ module arr;
  b : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
  a : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
  b : '{'h0, 'h5, 'h6, 'h7, 'h8, 'h9, 'h6, 'h7, 'h8, 'h9}
+  
+endmodule
 ```
+
+## Following operations are possible for only packed arrays.
+```
+module arr;
+  
+  bit [4:0][7:0] a;
+
+  
+  initial begin
+
+    a =1;
+    
+    $display(" a : %h",a);
+    
+    a ='1;
+    
+    $display(" a : %h",a);
+    
+    a = a&32'd255;
+    
+    $display(" a : %b",a);
+    
+    
+  end
 
   
 endmodule
+```
