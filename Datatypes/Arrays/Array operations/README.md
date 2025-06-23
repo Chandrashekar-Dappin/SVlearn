@@ -61,9 +61,25 @@ module arr;
     
     $display(" a : %b",a);
     
+    a[3:1] = 16'b1101_1110_0000_1010;
     
+    $display(" a : %b",a);
+    
+    $display(" a : %0d",$size(a));
+
+    $display(" a : %0d",$bits(a));
+
+
   end
 
   
 endmodule
+
+//Output
+ a : 0000000001
+ a : ffffffffff
+ a : 0000000000000000000000000000000011111111
+ a : 0000000000000000110111100000101011111111
+ a : 5
+ a : 40
 ```
