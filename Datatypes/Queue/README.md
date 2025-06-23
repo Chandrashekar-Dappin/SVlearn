@@ -29,3 +29,67 @@
 ## a.push_back(item);    --->         a = a[a,6];
 ## a.push_front(item);   --->         a = a[7,a];
 ## a = a[1:$-1]          --->         deleting first and last elements of a queue
+
+
+## Ex:
+```
+module tb;
+  
+  int queue[$];
+  int y;
+  
+  initial begin
+    $display("before initialising values size of queue : %0d",queue.size);
+    $display("before initialising values queue : %p",queue);
+    
+    queue = '{1,2,3,4,5};
+    
+    $display("after initialising values queue : %p",queue);
+    $display("after initialising values size of queue : %0d",queue.size);
+    
+    queue.insert(1,6);
+    
+    $display("after inserting value at 1st index queue : %p",queue);
+    
+    queue.delete(5);  // giving index as argument
+    
+    $display("after deleting value of 5th index queue : %p",queue);
+    
+    queue.delete();  //deletes entire queue with no args
+    
+    $display("after deleting entire queue : %p",queue);
+    
+    $display("after deleting size of queue : %0d",queue.size);
+    
+    queue = '{2,4,6,8};
+    
+    queue.push_front(10);
+    
+    $display("after push_front queue : %p ",queue);
+    
+    y = queue.pop_front();
+    
+    $display("after pop_front queue : %p ",queue);
+    
+    $display(" Y = %0d",y);
+
+
+
+  end
+  
+endmodule
+
+//Output
+before initialising values size of queue : 0
+before initialising values queue : '{}
+after initialising values queue : '{1, 2, 3, 4, 5} 
+after initialising values size of queue : 5
+after inserting value at 1st index queue : '{1, 6, 2, 3, 4, 5} 
+after deleting value of 5th index queue : '{1, 6, 2, 3, 4} 
+after deleting entire queue : '{}
+after deleting size of queue : 0
+after push_front queue : '{10, 2, 4, 6, 8}  
+after pop_front queue : '{2, 4, 6, 8}  
+ Y = 10
+
+```
