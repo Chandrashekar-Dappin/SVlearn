@@ -1,3 +1,7 @@
+## The %p format specifier prints associative arrays as a whole.
+## It formats integers as hexadecimal (base-16).
+
+It formats integers as hexadecimal (base-16).
 ## Ex1 : 1D array
 ```
 module tb;
