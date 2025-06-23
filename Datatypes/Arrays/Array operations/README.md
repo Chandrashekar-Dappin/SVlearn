@@ -1,0 +1,42 @@
+## Following operations are possible for both packed and unpacked arrays.
+## NOTE : Both array A & B should be of same type and size.
+
+## Ex: Array slicing and copying
+```
+module arr;
+  
+  bit [7:0] a [10];
+  bit [7:0] b [10];
+  
+  initial begin
+    a = '{0,1,2,3,4,5,6,7,8,9};
+    
+    b = a;
+    
+    $display(" a : %p",a);
+    $display(" b : %p",b);
+    
+    b[0:3] = a[0:3];
+    
+    $display(" a : %p",a);
+    $display(" b : %p",b);  
+    
+    b[1+:5] = a[5+:5];
+    
+    $display(" a : %p",a);
+    $display(" b : %p",b);
+    
+    
+  end
+
+//Output
+ a : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
+ b : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
+ a : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
+ b : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
+ a : '{'h0, 'h1, 'h2, 'h3, 'h4, 'h5, 'h6, 'h7, 'h8, 'h9} 
+ b : '{'h0, 'h5, 'h6, 'h7, 'h8, 'h9, 'h6, 'h7, 'h8, 'h9}
+```
+
+  
+endmodule
