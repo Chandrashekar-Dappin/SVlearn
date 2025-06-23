@@ -17,6 +17,34 @@
 
 > You want something like a dictionary (like in Python)
 
+## Ex : accessing the elements of associative array using foreach loop
+```
+module tb;
+  
+  int assoc[string];
+  
+  initial begin
+    
+    assoc = '{ "JAN" : 1, "fEB" : 100, "MAR" : 200};
+    
+    //V.IMp : we can access the elements of assoc. array using foreach loop
+    
+    foreach(assoc[name])
+      $display("assoc[%s] = %0d",name,assoc[name]);   //increments alphabetically based on ASCII value
+    
+    //$display(" Assoc : %p",assoc);
+    
+  end
+  
+endmodule
+
+//Output
+//increments alphabetically based on ASCII value
+assoc[JAN] = 1
+assoc[MAR] = 200
+assoc[fEB] = 100
+```
+
 ## Ex1:
 ```
 bit enable_config[string];
