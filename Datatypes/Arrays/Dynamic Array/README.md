@@ -76,4 +76,43 @@ endmodule
 //array : '{'{0, 0, 0} , '{0, 0} , '{0, 0} , '{0, 0} }
 ```
 
+## Ex4 : Initialising 3D array without new[]
+```
+module tb;
+  
+  int arr[][][];
+  
+  initial begin
+    
+    arr = new[5];
+    
+    
+    
+    foreach (arr[i])
+      arr[i] = new[$urandom_range(1,5)];
+    
+    foreach(arr[i,j])
+      arr[i][j] = new[$urandom_range(1,6)];
+    
+    $display("arr : %p",arr);
+
+    /*or manually when we want definite memories
+     foreach (arr[i])
+      arr[i] = new[4];
+    
+    foreach(arr[i,j])
+      arr[i][j] = new[2];
+    
+    $display("arr : %p",arr);
+    */
+    
+  end
+  
+endmodule
+
+//output
+arr : '{'{'{0, 0, 0, 0, 0, 0} , '{0, 0, 0, 0, 0} , '{0, 0, 0, 0} , '{0} }, '{'{0, 0, 0, 0, 0, 0} }, '{'{0, 0, 0, 0, 0, 0} , '{0, 0, 0} , '{0, 0, 0} , '{0, 0, 0, 0, 0, 0} }, '{'{0, 0, 0, 0, 0, 0} }, '{'{0} , '{0, 0, 0} , '{0, 0, 0, 0, 0, 0} }}
+```
+
+
 
