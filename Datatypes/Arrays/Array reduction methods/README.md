@@ -30,6 +30,6 @@ endmodule
 //Output
 sum of array : 28
 product of array : 5040
-bitwise and of sorted array : 0
+bitwise and of array : 0
 bitwise xor array : 0
 ```
