@@ -3,7 +3,8 @@
 ## Array locator methods work on UNPACKED ARRAYS and return QUEUE.
 
 ![WhatsApp Image 2025-06-23 at 18 35 22_05597568](https://github.com/user-attachments/assets/69b64a72-3ba1-450f-9ab3-3297d2503e57)
-![WhatsApp Image 2025-06-23 at 18 35 22_05597568](https://github.com/user-attachments/assets/3d8e885d-40e6-4035-aaa9-ffd6bfc28fc3)
+![WhatsApp Image 2025-06-23 at 18 35 22_dde01215](https://github.com/user-attachments/assets/32bb7443-2ed7-4d86-b6ff-96b3ce831e70)
+
 
 ## Ex:
 ```
