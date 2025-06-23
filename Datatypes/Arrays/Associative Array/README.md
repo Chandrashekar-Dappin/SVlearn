@@ -17,7 +17,7 @@
 
 > You want something like a dictionary (like in Python)
 
-## Ex : accessing the elements of associative array using foreach loop
+## Ex1 : accessing the elements of associative array using foreach loop
 ```
 module tb;
   
@@ -43,6 +43,30 @@ endmodule
 assoc[JAN] = 1
 assoc[MAR] = 200
 assoc[fEB] = 100
+```
+## Ex2: an associative array with integer keys and string values.
+```
+module tb;
+  
+ // string assoc[int];: Creates an associative array with integer keys and string values.
+  string assoc[int];
+  
+  initial begin
+    
+    assoc = '{-20 : "chandru", 0 : "chirag", 10 : "rahul" };
+    
+    foreach(assoc[i])
+      $display("assoc[%0d] = %s",i,assoc[i]);   
+    
+    
+  end
+  
+endmodule
+
+//Output
+assoc[-20] = chandru
+assoc[0] = chirag
+assoc[10] = rahul
 ```
 
 ## Ex1:
