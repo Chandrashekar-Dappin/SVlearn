@@ -1,4 +1,5 @@
-## Parameterised class : we can pass parameters to class making it reconfigurable.
+## Parameterised class : A parameterized class is a class that takes one or more parameters, allowing you to write generic, reusable, and configurable code.
+
 
 ## Ex:
 ```
