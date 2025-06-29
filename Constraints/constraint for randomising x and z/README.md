@@ -4,7 +4,7 @@ class randd;
   reg a;
   rand bit[1:0] b;
 
-  constraint s { b inside {[0:3]}; }
+  constraint s { b inside {[0:3]}; }    // no need as b is of 2 bit obviously it randomizes bw 0 to 3
 
   function void post_randomize();
     case (b)
