@@ -7,7 +7,7 @@
 ## packed structure is made up of BIT FIELDS (bit,byte,int,shortint,longint) which are packed together without gap (1D).
 ## packed str. can be used as a whole to perform arithmetic and logical operations.
 ## first member of packed str. occupies MSB & subsequent members follow decreasing significance.
-## structures can be using 'packed' followed by 'signed' or 'unsigned' keyword.
+## structures can be made as packed structure using 'packed' followed by 'signed' or 'unsigned' keyword.
 ## Packed str. is always 1D vector.
 ## NOTE : only packed datatype and integer datatypes are allowed inside packed structures.
 
