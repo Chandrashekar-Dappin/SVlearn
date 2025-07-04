@@ -1,4 +1,4 @@
-## we cannot directly initialise the assoc.. array first we need to define the keys..then we can modify those values using foreach loop.
+## we cannot directly initialise the assoc. array using foreach loop.first we need to define the keys..then we can modify those values using foreach loop.
 
 ## Ex1: initialising for string index
 ```
