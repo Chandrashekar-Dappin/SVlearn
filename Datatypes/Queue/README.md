@@ -12,6 +12,7 @@
 ## int queue4[a:b];      //a=b=n returns queue with n elements
 ## int queue5[a:b];      //if a>b returns empty queue...reverse indexing not possible in queue
 ## int queue6[a:b];      //if a or b is 'x' or 'z' ...returns an empty queue
+## NOTE : when we try to access  out of bound index in a queue...it will returns default value...or some simulators throw warning
 
 # Queue methods:
 ## int a[$] = '{1,2,3,4,5};
