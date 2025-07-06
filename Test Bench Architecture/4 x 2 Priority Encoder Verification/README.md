@@ -42,7 +42,7 @@ class transaction;
   
 endclass
 ```
-## 4.Genarator
+## 4.Generator
 ```
 class generator;
   
