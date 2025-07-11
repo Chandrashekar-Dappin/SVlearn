@@ -1,6 +1,6 @@
 ## The enum (enumeration) keyword in SystemVerilog is used to create a user-defined data type consisting of a set of named integral constants.
 ## Important in making state machines.
-## It has 'int' as default index...or we can provide signed or unsigned index like logic[1:0]...but it must be of INTEGRAL TYPE. it shoild not be string.
+## It has 'int' as default index...or we can provide signed or unsigned index like logic[1:0]...but it must be of INTEGRAL TYPE. it shoild not be STRING type.
 ## NOTE : enum are stored as 'int' unless specified.
 ## First member gets value 0 , then goes on....we can give different values to members if required
 # Example
