@@ -17,8 +17,8 @@ module tb;
   
   union packed{byte a;
                bit[7:0] b;
-         byte c;
-        } my_un;
+               byte c;
+       } my_un;
   
   initial begin
     my_un.a = 8'hff;
