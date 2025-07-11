@@ -10,10 +10,8 @@ To reinterpret the same bits in different ways
 To save memory (all members share the same space)
 
 Often used in testbenches, protocol parsers, or bit manipulations
-
-## Ex:Packed union members must have same size.
-
 ```
+## Ex: Packed union members must have same size.
 ```
 module tb;
   
