@@ -7,6 +7,31 @@
 ## NOTE : we can use foreach loop for accessing the elements of associative array.
 ## NOTE : Associative arrays that specify a wildcard index[*] type cannot be used in a foreach loop or inside expression...some simulators throw error in this case..so the foreach loop runs well when index of assoc. array is specified.
 ## NOTE : assoc = '{0,1,2,3,4};     illegal ..cannot initialise it as normal array
+
+## accessing assoc.array of wildcard index usind foreach loop
+## NOTE : warning throws-"Foreach has wildcard indexed Associative Array
+  ## This will be an error in a future release"
+```
+module tb;
+  
+  int a[*];
+  
+  initial begin
+    a='{1:100, "April":200, "June":300, 2:400};
+    
+    foreach(a[i])
+      $display("a[%0d] = %0d",i,a[i]);
+    
+  end
+  
+endmodule
+
+//output
+a[1] = 100
+a[2] = 400
+a[1249209957] = 300
+a[281059420524] = 200
+```
 ```
 module tb;
   
