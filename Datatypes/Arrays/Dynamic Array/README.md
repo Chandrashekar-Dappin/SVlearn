@@ -115,4 +115,24 @@ arr : '{'{'{0, 0, 0, 0, 0, 0} , '{0, 0, 0, 0, 0} , '{0, 0, 0, 0} , '{0} }, '{'{0
 ```
 
 
+## Ex5: initialising 3D array..    int a[][$][*];     // all are of 2 sizes
+```
+module tb;
+  
+  int a[][$][*];     // all are of 2 sizes
+  
+  initial begin
+    
+    a='{ '{ '{1:100,2:00},'{3:300,4:400} }, '{ '{5:500,6:600},'{7:700,8:800} } };    //innermost is assoc. of size 2, outside is queue of size 2, outermost is dynamic array of 2 queues
+    
+    $display("a = %p",a);
+    
+  end
+  
+endmodule
+
+//output
+a = '{'{'{0x1:100, 0x2:0} , '{0x3:300, 0x4:400} }, '{'{0x5:500, 0x6:600} , '{0x7:700, 0x8:800} }}
+
+```
 
