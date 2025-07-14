@@ -136,3 +136,26 @@ a = '{'{'{0x1:100, 0x2:0} , '{0x3:300, 0x4:400} }, '{'{0x5:500, 0x6:600} , '{0x7
 
 ```
 
+
+## Ex6: a.delete(5);      // does not take argument like this ..throws an error 
+
+```
+module tb;
+  
+  int a[];
+  
+  initial begin
+    
+ 
+    a=new[10];
+    a='{1,2,3,4,5,6};
+    $display("array size = %0d",a.size());
+    //a.delete(5);      // does not take argument like this ..throws an error 
+    a.delete();
+    $display("array size = %0d",a.size());
+
+    
+  end
+  
+endmodule
+```
