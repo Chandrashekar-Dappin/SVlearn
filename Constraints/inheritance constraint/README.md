@@ -1,5 +1,5 @@
 ## Inheritance constraints : 
-## if two different constraints with different names are written inside two different classes (i.e. parent and child class) ,then it is similar to both constraints are written inside same class (i.e. in parent / child class)
+## if two different constraints with different names are written inside two different classes (i.e. parent and child class) ,then it is similar to both constraints are written inside same class (i.e. either in parent / child class)
 
 ## if constraints names in child class and parent class are same ,then child class constraint overrides parent class constraints when called by child handle.
 
