@@ -20,7 +20,7 @@ module tb;
     
     repeat(5) begin
       p.randomize() with { p.a>=50; p.a<=100; 
-                          p.b>100; p.b<=200;};  //in-line constraint (;) must after {}
+                          p.b>100; p.b<=200;};  //in-line constraint (;) must after {}  and cannot be written with assert
        $display("a = %0d | b = %0d",p.a,p.b);
     end
     
