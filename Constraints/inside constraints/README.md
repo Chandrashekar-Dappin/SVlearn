@@ -1,4 +1,4 @@
-## 'inside' operator : whenever we want the constraints in particulzr range , we use inside constraints.
+## 'inside' operator : known as 'set membership operator' whenever we want the constraints in particular range , we use inside constraints.
 
 ## Ex1 : a within range (5-10), (15-20), 37, 45, (100-120)
 ```
