@@ -1,4 +1,4 @@
-## Inline constrainta are written along with randomize() function using'with' keyword.
+## Inline constraints are written along with randomize() function using'with' keyword.
 
 ## Ex:
 ```
