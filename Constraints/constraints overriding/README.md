@@ -37,7 +37,7 @@ endmodule
 //Output
 a = 22
 a = 23
-a = 26
+a = 26 
 a = 27
 a = 22
 a = 22
