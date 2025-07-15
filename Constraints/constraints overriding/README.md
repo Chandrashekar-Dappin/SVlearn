@@ -12,7 +12,7 @@ endclass
 
 class child extends parent;
   
-  constraint c2 { a>20 && a<30;}
+  constraint c1 { a>20 && a<30;}
 
 endclass
 
@@ -35,16 +35,16 @@ module tb;
 endmodule
 
 //Output
-a = 18
-a = 13
-a = 16
-a = 12
-a = 13
-a = 13
-a = 11
-a = 11
-a = 12
-a = 18
+a = 22
+a = 23
+a = 26
+a = 27
+a = 22
+a = 22
+a = 29
+a = 23
+a = 26
+a = 23
 ```
 
 ## 2.Using constraint_mode():
