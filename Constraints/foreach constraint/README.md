@@ -482,8 +482,10 @@ Prime numbers: '{19, 61, 71, 53, 19, 7, 23, 23, 67, 37}
 class prime;
   rand int a[];
   int b[$];
+  int c[10];
+        
   
-  constraint c1 { a.size > 15 && a.size < 30; }
+  constraint c1 { a.size > 100 && a.size < 200; }
   
   constraint c2 { foreach(a[i]) a[i] == prime(i) ; }
   
@@ -501,6 +503,8 @@ class prime;
   
   function void post_randomize();
     b= a.unique;
+    foreach(c[i])
+      c[i] = b[i];
   endfunction
   
 endclass
@@ -512,7 +516,7 @@ endclass
       p = new();
       
       assert(p.randomize());
-      $display("array = %p",p.b);
+      $display("array = %p",p.c);
       
     end
     
@@ -520,6 +524,49 @@ endclass
     
 
 //Output
-array = '{2, 3, 5, 7, 11, 13, 17} 
+array = '{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
 ```
+
+
+## Ex 10: 0,0,1,1,0,0,2,2,0,0,3,3,...........
+```
+class packet;
+
+  rand int a[12];
+
+  constraint c1 {
+    foreach (a[i]) 
+      if (i <= 8 && (i % 4 == 0)) 
+      {
+        a[i]     == 0;
+        a[i+1]   == 0;
+        a[i+2]   == (i+4)/4;
+        a[i+3]   == (i+4)/4;
+      }
+    
+  }
+
+endclass
+
+
+module tb;
+  
+  packet p;
+  
+  initial begin
+    
+    p = new();
+    
+    assert(p.randomize());
+    $display("a = %p",p.a);
+    
+  end
+  
+endmodule
+
+//Output
+a = '{0, 0, 1, 1, 0, 0, 2, 2, 0, 0, 3, 3}
+```
+
+
 
