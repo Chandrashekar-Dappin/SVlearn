@@ -759,3 +759,41 @@ endmodule
 elemnets with last digit 5 = '{165, 145, 235, 285, 185, 285, 285, 195, 145, 165}
 ```
 
+## Ex16: array [2][4] even numbers and multiple of 4 in first 4 locations and odd numbers and multiples of 5 in next 4 locations
+```
+
+class packet;
+  
+  rand int a[2][4];
+  
+  constraint c1 {foreach(a[i,j])
+    if(i == 0)
+      a[i][j]%4 == 0;
+    else
+      a[i][j]%10 == 5;
+                }
+  
+  constraint c2 {foreach(a[i,j])
+    a[i][j] inside {[0:200]};
+                }
+  
+
+
+             
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    assert(p.randomize());
+    $display("arrays = %p",p.a);
+  end
+  
+endmodule
+
+//Output
+arrays = '{'{104, 180, 72, 76}, '{85, 185, 185, 95}}
+```
