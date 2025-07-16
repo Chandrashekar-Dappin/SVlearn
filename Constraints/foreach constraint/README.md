@@ -726,3 +726,36 @@ endmodule
 //Output
 2D array with diagonal elements 5 = '{'{5, 0, 0}, '{0, 5, 0}, '{0, 0, 5}}
 ```
+
+## Ex15 : array with elements last digit 5
+```
+class packet;
+  
+  rand int a[10];
+  
+
+  constraint c1 { foreach(a[i]){
+                 a[i]%10 == 5;
+                 a[i] inside {[100:300]};             
+                }
+                }
+
+             
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    assert(p.randomize());
+    $display("elemnets with last digit 5 = %p",p.a);
+  end
+  
+endmodule
+
+//Output
+elemnets with last digit 5 = '{165, 145, 235, 285, 185, 285, 285, 195, 145, 165}
+```
+
