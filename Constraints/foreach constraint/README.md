@@ -528,7 +528,7 @@ array = '{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
 ```
 
 
-## Ex 10: 0,0,1,1,0,0,2,2,0,0,3,3,...........
+## VIMP Ex 10: 0,0,1,1,0,0,2,2,0,0,3,3,...........
 ```
 class packet;
 
@@ -569,4 +569,160 @@ a = '{0, 0, 1, 1, 0, 0, 2, 2, 0, 0, 3, 3}
 ```
 
 
+## Ex11 : creating palindrome of 32 bit number
+```
+class packet;
+  
+  rand bit [31:0] a;
+  
+  constraint c1 {a[31:28] == a[3:0];
+                 a[27:24] == a[7:4];
+                 a[23:20] == a[11:8];
+                 a[19:16] == a[15:12];
+                }
+  
+endclass
 
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    repeat(10) begin
+      assert(p.randomize());
+      $display("a = %h",p.a);
+    end
+    
+  end
+  
+endmodule
+
+
+//Output
+a = 72355327
+a = f3f44f3f
+a = 09666690
+a = 966aa669
+a = 7f0110f7
+a = 13e44e31
+a = 34411443
+a = f21ee12f
+a = ad3aa3da
+a = 23eaae32
+```
+
+## Ex12 : fibonacci series 0  1 1 2 3 5 8
+```
+class packet;
+  
+  rand int a[10];
+  
+  constraint c1 { foreach(a[i])
+    if(i<=1)
+      a[i] == i;
+    else
+      a[i] == a[i-1] + a[i-2];
+                } 
+  
+endclass
+
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    assert(p.randomize());
+    $display("a = %p",p.a);
+
+    
+  end
+  
+endmodule
+
+
+//Output
+a = '{0, 1, 1, 2, 3, 5, 8, 13, 21, 34}
+```
+
+## Ex13 : 1,2,4,8,16,32....
+```
+
+class packet;
+  
+  rand int a[10];
+  
+  constraint c1 { foreach(a[i])
+    //a[i] == 2**i;
+    if(i<1)
+      a[i] == 1;
+    else
+      a[i] == a[i-1]*2;
+                 
+    
+                } 
+  
+endclass
+
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    assert(p.randomize());
+    $display("a = %p",p.a);
+
+    
+  end
+  
+endmodule
+
+
+//Output
+a = '{1, 2, 4, 8, 16, 32, 64, 128, 256, 512}
+```
+
+## Ex14 : 2D array problems
+![WhatsApp Image 2025-07-16 at 19 39 07_91d91d0d](https://github.com/user-attachments/assets/1a20288d-1f85-4b1c-8eaf-a6e14d4a93d3)
+![WhatsApp Image 2025-07-16 at 19 39 07_09292f99](https://github.com/user-attachments/assets/cfd51494-11d1-40f6-bbfb-c183e387743c)
+
+## 2D array with diagonal elements 5
+```
+class packet;
+  
+  rand int a[3][3];
+  
+  constraint c1 { foreach(a[i,j])
+    if(i == j)
+      a[i][j] == 5;
+    else
+      a[i][j] == 0;
+   
+             }
+
+             
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    assert(p.randomize());
+    $display("2D array with diagonal elements 5 = %p",p.a);
+  end
+  
+endmodule
+
+//Output
+2D array with diagonal elements 5 = '{'{5, 0, 0}, '{0, 5, 0}, '{0, 0, 5}}
+```
