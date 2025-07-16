@@ -10,6 +10,10 @@ class packet;
              }
   
 //  constraint c2 { unique{a,queue};}
+
+//   constraint c3 { {!(a inside {queue})};
+//                 }
+  
   
   function void post_randomize();
     
