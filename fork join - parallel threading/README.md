@@ -125,14 +125,21 @@ initial
 for( int i = 0; i < 5; i++ )
 
 begin
-automatic int j = i;
+automatic int j = i;                    //first current  i value is updated to j 
 fork
 begin
-$display( "j : %0d", j );
+$display( "j : %0d", j );              // it pushes this thread to background ..then prints in i=1 with same old value i=0
 end
 join_none
 end
 endmodule
+
+//Output
+i=1
+i=2
+i=3
+i=4
+i=5
 
 Q7) What is the output of this snippet ?
 
@@ -151,6 +158,13 @@ join_none
 end
 endmodule
 
+//Output
+j : 4
+j : 4
+j : 4
+j : 4
+j : 4
+
 Q8) What is the output of this snippet ?
 
 module tb;
@@ -159,11 +173,18 @@ initial
 for( int i = 0; i < 5; i++ )
 begin
 fork
-automatic int j = i;
+automatic int j = i;          // j gets each independent copy of i 
 $display( "j : %0d", j );
 join_none
 end
 endmodule
+
+//Output
+j : 0
+j : 1
+j : 2
+j : 3
+j : 4
 
 Q9) What is the output of this snippet ?
 
@@ -180,6 +201,13 @@ end
 join_none
 end
 endmodule
+
+//Output
+j : 5
+j : 5
+j : 5
+j : 5
+j : 5
 
 
 Q10. module fork_join;
