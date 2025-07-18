@@ -9,15 +9,22 @@
 Ex1 :Q1) What is the output of this snippet, tell the gap of compilation as well?
 
 module tb;
-
-For (int i=0; i<5; i++)
+initial begin
+for (int i=0; i<5; i++)
 begin
 fork
 $display(" i =%0d",i);
 Join_none
 end
-
+end
 endmodule
+
+//Output
+5
+5
+5
+5
+5
 
 Q2)What is the output of this snippet ?
 
@@ -36,6 +43,13 @@ end
 
 endmodule
 
+//Output
+0, i=5
+0, i=5
+0, i=5
+0, i=5
+0, i=5
+
 Q3) What is the output of this snippet ?
 
 module tb;
@@ -44,14 +58,22 @@ integer i;
 initial
 begin
 for(i=0; i<5; i++) begin
-#0;
+#0;  //inactive region
 fork
-$display("%0t , i=%0d", $time, i);
+$display("%0t , i=%0d", $time, i);     //does not execute goes to backgroung and runs in active region of i=1 before #0 ..so then updated value of i=1 of i=0th iteration
 join_none
 end
 end
 
 endmodule
+
+//Output
+0, i=1
+0, i=2
+0, i=3
+0, i=4
+0, i=5
+
 
 Q4) What is the output of this snippet ?
 
@@ -62,12 +84,18 @@ for( int i = 0; i < 3; i++ )
 begin
 fork
 begin
-automatic int j = i;
+automatic int j = i;              // this entire fork join_none block goes to background.. and all blocks execute when i=3, so all values of j=3
 $display( "j : %0d", j );
 end
 join_none
 end
 endmodule
+
+//Output
+j=3
+j=3
+j=3
+
 
 Q5) What is the output of this snippet ?
 
@@ -79,11 +107,16 @@ begin
 fork
 begin
 j=i;
-$display( "j : %0d", j );
+$display( "j : %0d", j );         // this entire fork join_none block goes to background.. and all blocks execute when i=3, so all values of j=3
 end
 join_none
 end
 endmodule
+
+//Output
+j=3
+j=3
+j=3
 
 Q6) Explain why value of j prints in reverse order?
 
@@ -329,39 +362,39 @@ Q17. module disable_fork;
     $display("*BEFORE_DISABLE_FORK*");
  
  
-    fork
+    fork  //0
       begin
-        $display($time,"\tThread A");
+        $display($time,"\tThread A");//0
         #15;
-        $display($time,"\tThread B");
+        $display($time,"\tThread B");//15
       end
  
       begin
-        $display($time,"\tThread C");
+        $display($time,"\tThread C");//0
         #30;
-        $display($time,"\tThread D");
+        $display($time,"\tThread D");//30
       end
-    join_any
+    join_any//15
     
-    fork
+    fork   //15
       begin
-        $display($time,"\tThread A1");
+        $display($time,"\tThread A1");//15
         #15;
-        $display($time,"\tThread B1");
+        $display($time,"\tThread B1");//30
       end
  
       begin
-        $display($time,"\tThread C1");
+        $display($time,"\tThread C1");//15
         #30;
-        $display($time,"\tThread D1");
+        $display($time,"\tThread D1");//45
       end
-    join_none
+    join_none//15
     
-    disable fork;
+    disable fork;//15
  
-    $display("*AFTER_DISABLE_FORK*");
+      $display("*AFTER_DISABLE_FORK*");//15
 
-    $finish;
+    $finish;//15
   
   end
 endmodule
@@ -373,24 +406,24 @@ Q18. module disable_specific_thread;
  
  
     fork
-      begin : A1
-        $display($time,"\tThread A");
+      begin : A1//0
+        $display($time,"\tThread A");//0
         #30;
-        $display($time,"\tThread B");
+        $display($time,"\tThread B");//30
       end
  
-      begin : B1
-        $display($time,"\tThread C");
+      begin : B1//0
+        $display($time,"\tThread C");//0
         #15;
-        $display($time,"\tThread D");
+        $display($time,"\tThread D");//15
       end
-    join_any
+    join_any//15
          
-    disable A1;
+    disable A1;//15
  
-    $display("*AFTER_DISABLE_SPECIFIC_THREAD*");
+    $display("*AFTER_DISABLE_SPECIFIC_THREAD*");//15
 
-    #50 $finish;
+    #50 $finish;//65
   
   end
 endmodule
