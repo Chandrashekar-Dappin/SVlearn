@@ -694,6 +694,43 @@ a = '{1, 2, 4, 8, 16, 32, 64, 128, 256, 512}
 ![WhatsApp Image 2025-07-16 at 19 39 07_91d91d0d](https://github.com/user-attachments/assets/1a20288d-1f85-4b1c-8eaf-a6e14d4a93d3)
 ![WhatsApp Image 2025-07-16 at 19 39 07_09292f99](https://github.com/user-attachments/assets/cfd51494-11d1-40f6-bbfb-c183e387743c)
 
+## randomising size of 2D dynamic array
+```
+class packet;
+  
+  rand int a[][];
+  
+  constraint  c1 { a.size == 4; }
+  
+  constraint c2 { foreach(a[i])
+    a[i].size == 3; }
+  
+  constraint c3 {foreach(a[i,j])
+    a[i][j] == i*5;
+                }
+  
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    assert(p.randomize());
+    
+    $display("a : %p",p.a);
+    
+  end
+  
+endmodule
+     
+
+//Output
+a : '{'{0, 0, 0} , '{5, 5, 5} , '{10, 10, 10} , '{15, 15, 15} }                 
+```
+
 ## 2D array with diagonal elements 5
 ```
 class packet;
