@@ -836,7 +836,7 @@ arrays = '{'{104, 180, 72, 76}, '{85, 185, 185, 95}}
 ```
 
 ## Ex17 : 2's table generation
-## we can generate any table using this logic
+## first method
 ```
 class packet;
   
@@ -851,7 +851,6 @@ class packet;
                  }
   
 endclass
-
 
 module tb;
   
@@ -869,3 +868,36 @@ endmodule
 
 //Output
 2's multiplication table : '{2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+```
+## second method
+```
+class packet;
+  
+  rand int a[1:11];
+  
+  constraint  c1 { foreach(a[i])
+      a[i] == i*5;
+                 }
+  
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    assert(p.randomize());
+    
+    $display("5's table : %p",p.a);
+    
+  end
+  
+  
+endmodule
+     
+
+//Output
+5's table : '{5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55}
+```
