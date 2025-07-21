@@ -797,3 +797,38 @@ endmodule
 //Output
 arrays = '{'{104, 180, 72, 76}, '{85, 185, 185, 95}}
 ```
+
+## Ex17 : 2's table generation
+## we can generate any table using this logic
+```
+class packet;
+  
+  rand int a[10];                     // remember to mention it as 'rand'
+  
+  constraint  c1 { foreach(a[i])
+    if(i<1)
+      a[i] == 2;
+                  
+    else
+      a[i] == a[i-1]+2;
+                 }
+  
+endclass
+
+
+module tb;
+  
+  initial begin
+    
+    packet p = new();
+    
+    assert(p.randomize());
+    
+    $display("2's multiplication table : %p",p.a);
+    
+  end
+  
+endmodule
+
+//Output
+2's multiplication table : '{2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
