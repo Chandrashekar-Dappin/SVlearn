@@ -30,3 +30,35 @@ The first member of enum datatype is RED
 The next member of enum datatype is BLUE
 The next member of enum datatype is RED
 ```
+
+## accessing enum using for loop
+```
+module tb;
+  
+  typedef enum {ONE,TWO, THREE,FOUR} numbers;
+  
+  numbers num;
+  
+  initial begin
+    
+//     num = num.first;
+//     $display("number: %s",num.name);
+//     num = num.next;
+//     $display("number: %s",num.name);
+    
+    for(int i=0; i<4; i++) begin
+      num = numbers'(i);
+      $display("numbers: %s",num.name);
+    end
+    
+
+  end
+  
+endmodule
+
+//output
+numbers: ONE
+numbers: TWO
+numbers: THREE
+numbers: FOUR
+```
