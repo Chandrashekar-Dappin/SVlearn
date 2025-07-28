@@ -94,3 +94,51 @@ after pop_front queue : '{2, 4, 6, 8}
  Y = 10
 
 ```
+
+## NOTE : we can assign lower size queue to higher size queue , it takes only assigned values......but we cannot assign higher size queue to lower size queue..it will throw error as size mismatch
+
+```
+module tb;
+  
+  int q1[$:7];
+  int q2[$:5];
+  
+  initial begin
+    
+    q1 = {0,1,2,3,4,5,6,7,8,9};
+    
+    q2 = q1;      // throws error
+    
+    $display("%p",q1);
+    $display("%p",q2);
+
+  end
+  
+  
+endmodule
+```
+
+```
+module tb;
+  
+  int q1[$:5];
+  int q2[$:7];
+  
+  initial begin
+    
+    q1 = {0,1,2,3,4,5};
+    
+    q2 = q1;     // can be assigned
+    
+    $display("%p",q1);
+    $display("%p",q2);
+
+  end
+  
+  
+endmodule
+
+//output
+'{0, 1, 2, 3, 4, 5} 
+'{0, 1, 2, 3, 4, 5}
+```
