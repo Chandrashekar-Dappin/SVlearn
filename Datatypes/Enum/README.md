@@ -33,6 +33,32 @@ The next member of enum datatype is RED
 
 ## accessing enum using for loop
 ```
+
+module tb;
+  
+  enum { IDLE, START, TRANSFER, DONE} state;
+  
+  initial begin
+    
+    for(state= state.first(); state <= state.last(); state=state.next()) begin
+      $display("%s",state.name);
+      
+      if(state == 3)
+        break;
+    end
+    
+  end
+  
+endmodule
+
+//output
+IDLE
+START
+TRANSFER
+DONE
+```
+
+```
 module tb;
   
   typedef enum {ONE,TWO, THREE,FOUR} numbers;
@@ -41,15 +67,10 @@ module tb;
   
   initial begin
     
-//     num = num.first;
-//     $display("number: %s",num.name);
-//     num = num.next;
-//     $display("number: %s",num.name);
-    
-    for(int i=0; i<4; i++) begin
-      num = numbers'(i);
-      $display("numbers: %s",num.name);
-    end
+     num = num.first;
+     $display("number: %s",num.name);
+     num = num.next;
+     $display("number: %s",num.name);
     
 
   end
@@ -89,3 +110,37 @@ Cannot create implicit value for enum label 's2' of the enum 'states' due to
 presence of x/z in enum label 's1'
 Specify an explicit value for the enum label
 ```
+
+## passing enum to function
+
+```
+module tb;
+  
+  enum { IDLE,START, TRANSFER, DONE} state;
+  
+  
+  function int state_det(state s);
+    
+    case(s)
+      IDLE : $display(" reading IDLE");
+      START : $display(" reading START");
+      TRANSFER : $display(" reading TRANSFER");
+      DONE : $display(" reading DONE");
+      default : $display(" reading default");
+      
+    endcase
+    
+  endfunction
+  
+  initial begin
+    
+    s = START;
+    state_det(s);      // reading START
+    
+  end
+  
+endmodule
+```
+
+
+## 
