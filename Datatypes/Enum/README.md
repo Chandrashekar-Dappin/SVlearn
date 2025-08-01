@@ -143,4 +143,34 @@ endmodule
 ```
 
 
-## 
+## outside member accessing
+
+```
+module enum_quiz;
+
+  typedef enum {
+    RED   = 2,
+    GREEN = 5,
+    BLUE  = 8
+  } color_e;
+
+  initial begin
+    color_e my_color;
+    int     numeric_value = 3; // Note: 3 is not a named value in the enum
+
+    // Explicitly cast the integer to the enum type
+    my_color = color_e'(numeric_value);
+
+    // Display the string name of the current enum value
+    $display("Color name is: '%s'", my_color.name());
+
+    $finish;
+  end
+
+endmodule
+
+//output
+Color name is: ''
+```
+
+
