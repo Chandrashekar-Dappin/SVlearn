@@ -116,10 +116,11 @@ Specify an explicit value for the enum label
 ```
 module tb;
   
-  enum { IDLE,START, TRANSFER, DONE} state;
+  typedef enum { IDLE,START, TRANSFER, DONE} state;
   
+  state s;
   
-  function int state_det(state s);
+  function void state_det(s);
     
     case(s)
       IDLE : $display(" reading IDLE");
