@@ -31,3 +31,33 @@ initial begin
 end
 
 ```
+
+## 3. Call by Refernce function
+```
+module tb;
+  
+  int a,b,c;
+  
+  function automatic int add(ref int x,y);
+    x=10;
+    y=20;
+    add=a+b;
+  endfunction
+  
+  initial begin
+    
+    a =100;
+    b =200;
+    c = add(a,b);
+    
+    $display("a = %0d b =%0d c = %0d",a,b,c);
+    
+  end
+  
+endmodule
+```
+
+## Output
+```
+a = 10 b =20 c = 30
+```
