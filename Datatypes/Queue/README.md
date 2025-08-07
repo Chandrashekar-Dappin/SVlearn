@@ -9,7 +9,7 @@
 
 ## Queue Operators:
 ## int queue3[a:b];      //0<a<b returns queue with b-a+1 elements
-## int queue4[a:b];      //a=b=n returns queue with n elements
+## int queue4[a:b];      //a=b=n returns queue with nth elements
 ## int queue5[a:b];      //if a>b returns empty queue...reverse indexing not possible in queue
 ## int queue6[a:b];      //if a or b is 'x' or 'z' ...returns an empty queue
 ## NOTE : when we try to access  out of bound index in a queue...it will returns default value...or some simulators throw warning
