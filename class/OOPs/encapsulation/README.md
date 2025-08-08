@@ -104,7 +104,28 @@ endmodule
 ```
     
   
+## Ex4 : writing getters and setters for accessing private members of a class
+```
+class packet;
+  local int  a;
+  function void set(int a);     //setter
+    this.a = a;
+  endfunction
+  function int get();           //getter
+    return a;
+  endfunction 
+endclass 
+module test;
+  packet p1;
+  initial begin 
+    p1 = new();
+    p1.set(10);
+    $display("local member a have an value of %0d", p1.get());
+  end 
+endmodule 
 
+sir is this enough for a simple explanation about accessing local members?
+```
     
 
     
