@@ -11,6 +11,8 @@
 ## accessing assoc.array of wildcard index usind foreach loop
 ## NOTE : warning throws-"Foreach has wildcard indexed Associative Array
   ## This will be an error in a future release"
+
+## Dynamic arrays are useful for contiguous collection of variables, Associative arrays are useful for non-contiguous collection of datatypes.
 ```
 module tb;
   
