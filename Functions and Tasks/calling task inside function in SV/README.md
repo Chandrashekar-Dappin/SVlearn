@@ -1,4 +1,4 @@
-## A task  cannot be called in verilog... but it can be called in SystemVerilog.
+## A task  cannot be called inside function in verilog... but it can be called in SystemVerilog.
 ## Rules:
 ### 1. task with no delay can be directly called inside function
 ### 2. task with delay can be called inside fork  join_none block inside funtion
